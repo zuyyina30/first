@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>KALKULATOR</title>
+	<script type="text/javascript">
+		function insert(){
+			document.getElementById('button').value
+		}
+	</script>
+	<style type="text/css">
+		*{
+			margin: 0;
+			padding:0;
+
+		}
+
+		body{
+			background-color: #469db3;
+		}
+
+		.button{
+			width: 75px;
+			height: 75px;
+			font-size: 25px;
+			color:white;
+			border: none;
+			margin:2px;
+			background-color: black;
+		}
+
+		#hasil{
+			width: 305px;
+			height: 40px;
+			margin: 5px;
+			padding: 5px;
+			font-size: 20px;
+		}
+
+		form {
+        	position: absolute;
+        	top: 50%;
+        	left: 50%;
+       		transform: translateX(-50%) translateY(-50%);
+       		background-color: black;
+       		color:white;
+      	}
+	</style>
+</head>
+
+<body>
+	<form>
+		<input type="text" id="hasil">
+
+	<table>
+		<tr>
+			<td><input class="button" type="button" value="DEL" onclick="backspace()"></td>
+			<td><input class="button" type="button" value="C"   onclick="clean()"></td>
+			<td><input class="button" type="button" value="x"   onclick="view('*')"></td>
+			<td><input class="button" type="button" value="/"   onclick="view('/')"></td>
+		</tr>
+
+		<tr>
+			<td><input class="button" type="button" value="7" onclick="view(7)"></td>
+			<td><input class="button" type="button" value="8" onclick="view(8)"></td>
+			<td><input class="button" type="button" value="9" onclick="view(9)"></td>
+			<td><input class="button" type="button" value="-" onclick="view('-')"></td>
+		</tr> 
+
+		<tr>
+			<td><input  class="button" type="button" value="4" onclick="view(4)"></td>
+			<td><input i class="button" type="button" value="5" onclick="view(5)"></td>
+			<td><input  class="button" type="button" value="6" onclick="view(6)"></td>
+			<td><input  class="button" type="button" value="+" onclick="view('+')"></td>
+		</tr>
+
+		<tr>
+			<td><input  class="button" type="button" value="1" onclick="view(1)"></td>
+			<td><input  class="button" type="button" value="2" onclick="view(2)"></td>
+			<td><input  class="button" type="button" value="3" onclick="view(3)"></td>
+			<td rowspan="2"><input style="height: 156px;"  class="button" type="button" value="=" onclick="equal()"></td>
+		</tr>
+
+		<tr>
+			<td colspan="2"><input style="width:156px;"  class="button" type="button" value="0" onclick="view(0)"></td>
+			<td colspan="2"><input   class="button" type="button" value="." onclick="view('.')"></td>	
+		</tr>
+	</table>
+	</form>
+
+	<script>
+      function view(angka) {
+        document.getElementById("hasil").value += angka;
+      }
+
+      function clean(){
+      	document.getElementById("hasil").value = "";
+      }
+
+      function backspace(){
+      	var hasil=document.getElementById("hasil").value
+      	if (hasil){
+      		document.getElementById("hasil").value = hasil.substring(0, 
+      			hasil.length -1);
+      }}
+
+      function equal(){
+      	var hasil=document.getElementById("hasil").value
+      	if (hasil){
+      		document.getElementById("hasil").value = eval(hasil);
+      }}
+    </script>
+
+</body>
+</html>
